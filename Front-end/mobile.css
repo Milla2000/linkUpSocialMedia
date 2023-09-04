@@ -1,0 +1,35 @@
+body{
+    background-color: #090941;
+    overflow: hidden;
+}
+.footer{
+    margin-bottom: 0%;
+}
+.top-div {
+  background-color: #007aeb;
+  height: 15vh;
+  border-radius: 0px 0px 10px 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* height: 15vh; */
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.search-button {
+  background-color: #007aeb;
+  border: none;
+  height: 30px;
+  width: 30px;
+  color: white;
+  /* font-size: 20px; */
+  cursor: pointer;
+}
