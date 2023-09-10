@@ -1,0 +1,181 @@
+### register
+POST  http://localhost:4500/users/register
+Content-Type: application/json
+
+{
+   
+    "username": "ngaftia111111141",
+    "email":"jessfy@gmail.com",
+    "password":"12345678",
+    "full_name": "jessyopeno",
+    "profile_picture": "12345678"
+}
+
+# { username, email, password, full_name, profile_picture } 
+
+### login
+POST  http://localhost:4500/users/login
+Content-Type: application/json
+
+{
+    "email":"jessy@gmail.com",
+    "password":"12345678"
+}
+
+
+
+
+
+
+###CREATE A PRODUCT
+POST http://localhost:4500/products
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzNDgzMTUyLCJleHAiOjE2OTM1MTkxNTJ9.iHSPCxrhtGitaaOm3BKFTtW7gapzwH28gUodFxnWKzM
+
+{
+    "name": "MIILA NGATIA product",
+    "description": "It ndgcvworks, don’t touch!",
+    "price": "2023/8/5",
+    "category": "2023/8/5",
+    "image": "2023/8/5",
+    "num_items": "2023"
+}
+
+
+
+### GET ALL PRODUCTS
+GET http://localhost:4500/products
+# token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04YzQ5LWQzZTY4OWFhYzA5NiIsInVzZXJuYW1lIjoiSm9oZ25oIiwiZW1haWwiOiJqb2huSmdlc3Nrb0BnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDExOjUzOjI4LjUxN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI2MDg5NTAsImV4cCI6MTY5MjYxMjU1MH0.6lDSnhAw1fBJX2qDtsXRNHvTJpEoWXNxLo6__-iJ-tM
+
+
+### GET ONE PRODUCTS
+GET http://localhost:4500/products/04ef2f85-4736-486d-a9fc-1c29f62d2449
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTU0MDUzLCJleHAiOjE2OTMxOTAwNTN9.OrMdrIb8GIklUKSjv7XkO1-XyWDczKhhAUqgqqnILEI
+
+
+### UPDATING PRODUCT
+PUT http://localhost:4500/products/04ef2f85-4736-486d-a9fc-1c29f62d2449
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzNDgzMTUyLCJleHAiOjE2OTM1MTkxNTJ9.iHSPCxrhtGitaaOm3BKFTtW7gapzwH28gUodFxnWKzM
+
+
+{
+    "name": "BIG JESSY UPDATED",
+    "description": "It works, don’t touch!",
+    "price": "2023/8/5",
+    "category": "electricals",
+    "image": "2023/8/5",
+    "num_items": "2023"
+
+}
+
+###delete product
+DELETE http://localhost:4500/products/04ef2f85-4736-486d-a9fc-1c29f62d2449
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
+###add product to cart
+POST http://localhost:4500/cart/add-to-cart
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzNDgzMTUyLCJleHAiOjE2OTM1MTkxNTJ9.iHSPCxrhtGitaaOm3BKFTtW7gapzwH28gUodFxnWKzM
+
+
+{
+  
+  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b",
+  "product_id": "008dcd61-d86e-4b83-9aac-c0747f3f91b9"     
+
+}
+
+###remove product from cart
+POST http://localhost:4500/cart/removeFromCart
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTcyMDU0LCJleHAiOjE2OTMyMDgwNTR9.fbeFT9yawKjxKeSxVkK_KdqpLpJWG57flx3We_Uv9OA
+
+
+{
+  
+  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b",
+  "product_id": "09c4447b-5d7a-4b3a-89d2-97f22886b405"     
+
+}
+
+
+
+
+###checkout from cart
+POST http://localhost:4500/cart/checkout
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTcyMDU0LCJleHAiOjE2OTMyMDgwNTR9.fbeFT9yawKjxKeSxVkK_KdqpLpJWG57flx3We_Uv9OA
+
+{
+  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b" 
+}
+
+
+
+
+
+
+
+
+### reset password
+POST  http://localhost:4500/reset/resetPassword
+Content-Type: application/json
+
+{
+    "email": "jessyopeno2000@gmail.com"   
+}
+
+### setting new password
+POST  http://localhost:4500/reset/updatePassword
+Content-Type: application/json
+
+{
+    "resetToken": "2953a64d-740f-4ee3-a22e-38e7ae21ea3b",
+    "newPassword": "milla789"
+    
+}
+
+
+
+
+
+
+###check user -ignore this end point
+# GET http://localhost:4500/users/check
+# token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6Ik1pbGxhIFdhY2hpcmEgU2lsb21hIiwiZW1haWwiOiJpZ25pdDNncmFwaGljc0BnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5MTY2MDM0OCwiZXhwIjoxNjkxNjYzOTQ4fQ.LXJkVJhFNpGESbG79zli1_uPcUGLRTzVLzbZ53H-cEg
+
+### get all user items on cart 
+GET http://localhost:4500/cart/cart-items/745bcdf8-6d2d-4f67-9887-2d29038374db
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphVEptbW5hZHVvbmciLCJlbWFpbCI6ImphZHVub21tbVRuZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwNSQuZDkzSFEudUhBT1psTTZib1FBZ1V1TktGb0dvbURFRFJIWUIub3F4ZlU1dVdLUjZZLkZEYSIsInBob25lX251bWJlciI6MTIzNDU2NzgsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTI3VDE0OjI1OjIxLjQ5M1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJyZXNldFRva2VuIjpudWxsLCJyZXNldFRva2VuRXhwaXJ5IjpudWxsLCJkZWxldGVkX2F0IjpudWxsLCJpYXQiOjE2OTMxMzU1NjAsImV4cCI6MTY5MzE3MTU2MH0.CiBbQp6afPI3p7f_IV1tqdpZPgnpSfp9lVM1peA2cxs
+
+
+### get all user items on cartitems table for admin
+GET http://localhost:4500/users/allcartitems
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMjA1NDEwLCJleHAiOjE2OTMyNDE0MTB9.s_YGbZbSDVx_rXrSXmmPYrjF2_qivb4RW6WsL2zJs_8
+
+
+### get all users 
+GET http://localhost:4500/users/allusers
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMzE0MTc3LCJleHAiOjE2OTMzNTAxNzd9.wE2PeBMY0dkvVrUeMTbfzFtzAybXg2Xgl9FdRuN7qWA
+###delete user-soft delete
+DELETE http://localhost:4500/users/softdelete/61eefc5d-9de7-467c-bda4-1804b54be1ae
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
+
+###delete user-permanent delete
+DELETE http://localhost:4500/users/permanentdelete/61eefc5d-9de7-467c-bda4-1804b54be1ae
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
+
+### UPDATING USER
+PUT http://localhost:4500/users/33c97805-0b62-423c-b954-bce6c73eac02
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
+{
+    "username": "SingNGAA",
+    "email": "behlian@gmail.com",
+    "phone_number": "2023744585"
+}
+
