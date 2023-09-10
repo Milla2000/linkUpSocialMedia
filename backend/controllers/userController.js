@@ -15,8 +15,13 @@ dotenv.config();
 
 const editUser = async (req, res) => {
     try {
-        const { id } = req.params.id;
+        const { id } = req.params;
+        // console.log(req.params.id)
         const { username, email, full_name, profile_picture } = req.body;
+       
+        console.log(req.body)
+
+
 
         if (!username || !email || !full_name || !profile_picture) {
             return res.status(400).json({
@@ -25,6 +30,7 @@ const editUser = async (req, res) => {
         }
 
         const pool = await mssql.connect(sqlConfig);
+        console.log("connected")
 
         const result = await pool
             .request()
@@ -38,19 +44,27 @@ const editUser = async (req, res) => {
         if (result.rowsAffected[0] === 1) {
             return res.json({ message: "User updated successfully" });
         } else {
+            console.log("result.rowsAffected[0]" )
             return res.status(400).json({ message: "User update failed" });
         }
     } catch (error) {
+        console.log("Error:", error);
         return res.status(500).json({ error: error.message });
     }
 };
 
 const softDeleteUser = async (req, res) => {
     try {
-        const { id } = req.params.id;
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({
+                error: "Please input user id",
+            });
+        }
 
         const pool = await mssql.connect(sqlConfig);
-
+        console.log(id)
         const result = await pool
             .request()
             .input("id", mssql.VarChar, id)
@@ -73,7 +87,7 @@ const getAllUsers = async (req, res) => {
         // Execute the SQL procedure to retrieve all users
         const users = await pool
             .request()
-            .execute("GetAllUsersProc");
+            .execute("getAllUsersProc");
 
         // Return the list of users in the response
         return res.status(200).json(users.recordset);
@@ -84,7 +98,15 @@ const getAllUsers = async (req, res) => {
 
 const getAUserDetails = async (req, res) => {
     try {
-        const { userId } = req.params.userId; // Assuming the user ID is passed as a parameter
+        const { userId } = req.params; // Assuming the user ID is passed as a parameter
+         
+       console.log(req.params.userId)
+
+       if (!userId) {
+            return res.status(400).json({
+                error: "Please input user id",
+            });
+        }
 
         const pool = await mssql.connect(sqlConfig);
 
@@ -92,7 +114,7 @@ const getAUserDetails = async (req, res) => {
         const user = await pool
             .request()
             .input("id", mssql.VarChar, userId)
-            .execute("GetUserDetailsProc");
+            .execute("getUserDetailsProc");
 
         if (user.recordset.length === 0) {
             return res.status(404).json({ message: "User not found" });

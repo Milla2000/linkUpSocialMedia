@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
    
-    "username": "ngaftia111111141",
-    "email":"jessfy@gmail.com",
+    "username": "jesso",
+    "email":"jessyopeno2000@gmail.com",
     "password":"12345678",
     "full_name": "jessyopeno",
     "profile_picture": "12345678"
@@ -18,86 +18,97 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"jessy@gmail.com",
+    "email":"jessyopeno2000@gmail.com",
     "password":"12345678"
 }
 
-
-
-
-
-
-###CREATE A PRODUCT
-POST http://localhost:4500/products
+### verify otp
+POST  http://localhost:4500/users/verifyotp
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzNDgzMTUyLCJleHAiOjE2OTM1MTkxNTJ9.iHSPCxrhtGitaaOm3BKFTtW7gapzwH28gUodFxnWKzM
 
 {
-    "name": "MIILA NGATIA product",
-    "description": "It ndgcvworks, don’t touch!",
-    "price": "2023/8/5",
-    "category": "2023/8/5",
-    "image": "2023/8/5",
-    "num_items": "2023"
+    "otp":"760232",
+    "userEmail":"jessyopeno2000@gmail.com"
+
 }
 
+###  get a single user
+GET http://localhost:4500/users/singleusers/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
 
-### GET ALL PRODUCTS
-GET http://localhost:4500/products
-# token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04YzQ5LWQzZTY4OWFhYzA5NiIsInVzZXJuYW1lIjoiSm9oZ25oIiwiZW1haWwiOiJqb2huSmdlc3Nrb0BnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDExOjUzOjI4LjUxN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI2MDg5NTAsImV4cCI6MTY5MjYxMjU1MH0.6lDSnhAw1fBJX2qDtsXRNHvTJpEoWXNxLo6__-iJ-tM
+
+###edit user details
+PUT http://localhost:4500/users/edit/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+ 
+{
+  "username": "millajesso",
+  "email": "dennissplit203@gmail.com",       
+  "full_name": "BethWaweru",    
+  "profile_picture": "09c4447b-5d7a-4b3a-89d2-97f22886b405"     
+
+}
+
+###soft delete user
+DELETE  http://localhost:4500/users/softdelete/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
 
-### GET ONE PRODUCTS
-GET http://localhost:4500/products/04ef2f85-4736-486d-a9fc-1c29f62d2449
+
+
+### GET ALL user on linkup
+GET http://localhost:4500/users/getallusers
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+
+
+
+
+
+
+
+
+
+
+
+### GET ONE Post
+GET http://localhost:4500/posts/94b1ff10-281c-4c03-905b-fbf4337cb99f
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTU0MDUzLCJleHAiOjE2OTMxOTAwNTN9.OrMdrIb8GIklUKSjv7XkO1-XyWDczKhhAUqgqqnILEI
 
 
-### UPDATING PRODUCT
-PUT http://localhost:4500/products/04ef2f85-4736-486d-a9fc-1c29f62d2449
+### UPDATING a post
+PUT http://localhost:4500/posts/edityourpost
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzNDgzMTUyLCJleHAiOjE2OTM1MTkxNTJ9.iHSPCxrhtGitaaOm3BKFTtW7gapzwH28gUodFxnWKzM
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
 
-{
-    "name": "BIG JESSY UPDATED",
-    "description": "It works, don’t touch!",
-    "price": "2023/8/5",
-    "category": "electricals",
-    "image": "2023/8/5",
-    "num_items": "2023"
-
+{   
+    "post_id": "94b1ff10-281c-4c03-905b-fbf4337cb99f",
+    "user_id": "36d7e3cd-49f4-4cb6-9171-a3f926fc7546",
+    "newContent": "BIG JESSY UPDATED",
+    "newImageUrl": "https://example.com/image.jpg"
 }
 
-###delete product
-DELETE http://localhost:4500/products/04ef2f85-4736-486d-a9fc-1c29f62d2449
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
-
-###add product to cart
-POST http://localhost:4500/cart/add-to-cart
+###delete post
+DELETE http://localhost:4500/posts/softdeleteyourpost
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc3lAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkU25VZGEzdDJFU0xERExxckdYemxTLjY0QXYwSU5sUUhXemQwY2g2TjhsakJnZkVsV2tWY3kiLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yOVQxNjowMjo0Ny40MDdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzNDgzMTUyLCJleHAiOjE2OTM1MTkxNTJ9.iHSPCxrhtGitaaOm3BKFTtW7gapzwH28gUodFxnWKzM
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
-
-{
-  
-  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b",
-  "product_id": "008dcd61-d86e-4b83-9aac-c0747f3f91b9"     
-
+{   
+    "post_id": "94b1ff10-281c-4c03-905b-fbf4337cb99f",
+    "user_id": "36d7e3cd-49f4-4cb6-9171-a3f926fc7546"
+    
 }
 
-###remove product from cart
-POST http://localhost:4500/cart/removeFromCart
-Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTcyMDU0LCJleHAiOjE2OTMyMDgwNTR9.fbeFT9yawKjxKeSxVkK_KdqpLpJWG57flx3We_Uv9OA
 
 
-{
-  
-  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b",
-  "product_id": "09c4447b-5d7a-4b3a-89d2-97f22886b405"     
+###get post by user id
+GET http://localhost:4500/posts/getpostsbyuserid/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
-}
+
+
 
 
 

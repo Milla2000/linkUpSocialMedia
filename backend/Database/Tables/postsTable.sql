@@ -15,3 +15,6 @@ BEGIN TRY
     BEGIN CATCH
         THROW 50001, 'Table already exists!', 1;
     END CATCH
+
+-- //fetch everything
+SELECT * FROM postsTable;

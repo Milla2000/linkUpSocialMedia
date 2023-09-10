@@ -7,10 +7,10 @@ const postsRouter = Router();
 
 postsRouter.post('/createnewpost', verifyToken, createNewPost);
 postsRouter.get('/getallposts', getAllPosts); 
-postsRouter.get('/getpostsbyuserid', verifyToken, getPostsByUserId); 
+postsRouter.get('/getpostsbyuserid/:userId', verifyToken, getPostsByUserId); 
 postsRouter.get('/:postId', viewPostById);
 postsRouter.put('/edityourpost', verifyToken, editPost);
-postsRouter.delete('/deleteyourpost', verifyToken, deletePostId);
+postsRouter.delete('/softdeleteyourpost', verifyToken, deletePostId);
 
 module.exports = {
     postsRouter

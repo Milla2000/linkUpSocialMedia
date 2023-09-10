@@ -7,6 +7,41 @@ const { sqlConfig } = require("../config/config");
 const dotenv = require("dotenv");
 dotenv.config();
 
+
+// Function to create a comment
+const createComment = async (req, res) => {
+    try {
+        const { postId, userId, content, parentCommentId } = req.body;
+
+        if (!postId || !userId || !content) {
+            return res.status(400).json({ error: 'Please provide postId, userId, and content' });
+        }
+
+        const pool = await mssql.connect(sqlConfig);
+
+        // Generate a unique ID for the comment
+        const commentId = v4();
+
+        // Create the comment using the stored procedure
+        const result = await pool
+            .request()
+            .input('id', mssql.VarChar, commentId)
+            .input('post_id', mssql.VarChar, postId)
+            .input('user_id', mssql.VarChar, userId)
+            .input('content', mssql.Text, content)
+            .input('parent_comment_id', mssql.VarChar, parentCommentId || null) // Nullable for replies
+            .execute('insertCommentProc'); // Use the correct procedure name
+
+        if (result.rowsAffected[0] === 1) {
+            return res.json({ message: 'Comment created successfully' });
+        } else {
+            return res.status(400).json({ message: 'Comment creation failed' });
+        }
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
 // Function to get comments for a post or a comment
 const getComments = async (req, res) => {
     try {
@@ -45,39 +80,7 @@ const getComments = async (req, res) => {
 };
 
 
-// Function to create a comment
-const createComment = async (req, res) => {
-    try {
-        const { postId, userId, content, parentCommentId } = req.body;
 
-        if (!postId || !userId || !content) {
-            return res.status(400).json({ error: 'Please provide postId, userId, and content' });
-        }
-
-        const pool = await mssql.connect(sqlConfig);
-
-        // Generate a unique ID for the comment
-        const commentId = v4();
-
-        // Create the comment using the stored procedure
-        const result = await pool
-            .request()
-            .input('id', mssql.VarChar, commentId)
-            .input('post_id', mssql.VarChar, postId)
-            .input('user_id', mssql.VarChar, userId)
-            .input('content', mssql.Text, content)
-            .input('parent_comment_id', mssql.VarChar, parentCommentId || null) // Nullable for replies
-            .execute('insertCommentProc'); // Use the correct procedure name
-
-        if (result.rowsAffected[0] === 1) {
-            return res.json({ message: 'Comment created successfully' });
-        } else {
-            return res.status(400).json({ message: 'Comment creation failed' });
-        }
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
-    }
-};
 
 const editComment = async (req, res) => {
     try {

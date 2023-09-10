@@ -10,8 +10,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const registerUser = async (req, res) => {
+  const id = v4();
   try {
-    const id = v4();
+    
     const { username, email, password, full_name, profile_picture } = req.body; // Modify the expected request body parameters
 
     if (!username || !email || !password || !full_name || !profile_picture) {
@@ -67,6 +68,7 @@ const userLogin = async (req, res) => {
 
     const pool = await mssql.connect(sqlConfig);
 
+    // Fetch user details
     const user = (
       await pool
         .request()
@@ -89,13 +91,41 @@ const userLogin = async (req, res) => {
       return res.status(400).json({ message: "Incorrect password" });
     }
 
-    // const { id, ...payload } = user;
-    // const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "360000s" });
-    let message = "Proceed to enter OTP";
-    await otpController.generateAndSendOTP(req, res)
-    return res.status(200).json({ id, message });
+    // Generate a random 6-digit OTP
+    const generateOTP = () => {
+      return Math.floor(100000 + Math.random() * 900000).toString();
+    };
 
+    // Generate OTP
+    const otp = generateOTP();
 
+    // Send OTP to the user
+    const message = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "One-Time Password (OTP)",
+      text: `Your OTP is: ${otp}`,
+    };
+
+    try {
+      // Send OTP via email
+      await sendMail(message);
+      console.log("OTP sent:", message);
+    } catch (error) {
+      console.log("Error sending OTP:", error);
+      throw new Error("Error sending OTP");
+    }
+
+    // Store the OTP and its expiry timestamp in the user's record in the database
+    const otpExpiry = new Date(Date.now() + 600000); // OTP expires in 10 minutes
+    await pool
+      .request()
+      .input("email", email)
+      .input("otp", otp)
+      .input("otpExpiry", otpExpiry)
+      .execute("setOTPAndExpiryTimeProc");
+
+    return res.status(200).json({ id: user.id, message: "OTP sent successfully" });
   } catch (error) {
     if (error.message.includes("duplicate key value")) {
       return res.status(400).json({ message: "Email already exists" });
@@ -105,93 +135,21 @@ const userLogin = async (req, res) => {
 };
 
 
-// Generate a random 6-digit OTP
-const generateOTP = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-};
 
-// Send OTP to the user (You can implement your preferred method here)
-const sendOTP = async (email, otp) => {
-  // sending OTP to the user via email or SMS
-  // store the OTP and its expiry timestamp in the user's record in the database
-  // send the OTP via SMS using a third-party service
-  // validate the OTP entered by the user
-  const message = {
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: "One-Time Password (OTP)",
-    text: `Your OTP is: ${otp}`,
-  };
-
-  try {
-    // Send OTP via email
-    await sendMail(message);
-    console.log("OTP sent:", message);
-  } catch (error) {
-    console.log("Error sending OTP:", error);
-    throw new Error("Error sending OTP");
-  }
-};
 
 const otpController = {
-  generateAndSendOTP: async (req, res) => {
-    try {
-      // const email = req.params.userEmail;
-      const { email } = req.params;
-
-      // if (!email) {
-      //     return res.status(400).json({
-      //         error: "Please provide an email address",
-      //     });
-      // }
-
-      const pool = await mssql.connect(sqlConfig);
-
-      // Check if the email exists in the system
-      const user = (
-        await pool
-          .request()
-          .input("email", mssql.VarChar, email)
-          .execute("userLoginProc")
-      ).recordset[0];
-
-      if (!user) {
-        return res.status(404).json({ message: "Email does not exist in the system. Please use a valid email address." });
-      }
-
-      // Generate a new OTP
-      const otp = generateOTP();
-
-      // Send the OTP to the user
-      await sendOTP(email, otp);
-
-      // Store the OTP and its expiry timestamp in the user's record in the database
-      const otpExpiry = new Date(Date.now() + 600000); // OTP expires in 10 minutes
-      await pool
-        .request()
-        .input("email", email)
-        .input("otp", otp)
-        .input("otpExpiry", otpExpiry)
-        .query("UPDATE usersTable SET otp = @otp, otpExpiry = @otpExpiry WHERE email = @email");
-
-      return res.status(200).json({ message: "OTP sent successfully" });
-
-    } catch (error) {
-      return res.status(500).json({ error: error.message });
-    }
-  },
-
   verifyOTP: async (req, res) => {
     try {
-      const { userEmail } = req.params.userEmail; // Extract email from URL params
-      const { otp } = req.body; // Extract OTP from request body
+      // const { userEmail } = req.params.userEmail; // Extract email from URL params
+      const { otp, userEmail } = req.body; // Extract OTP from request body
 
       if (!otp) {
         return res.status(400).json({
           error: "Please provide OTP",
         });
       }
-
+  
+        console.log(userEmail);
       const pool = await mssql.connect(sqlConfig);
 
       // Retrieve the user by email
@@ -220,16 +178,18 @@ const otpController = {
       // Set the OTP and OTP Expiry columns to null
       await pool
         .request()
-        .input("email", mssql.VarChar, UserEmail)
+        .input("email", mssql.VarChar, userEmail)
         .execute("UpdateOTPAndExpiryProc");
 
-      return res.status(200).json({ id, message, token });
+      return res.status(200).json({ id , message, token });
 
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
   },
 };
+
+
 
 const checkUser = async (req, res) => {
   if (req.info) {

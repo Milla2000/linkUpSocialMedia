@@ -9,14 +9,14 @@ const usersRouter = Router()
 usersRouter.post('/register', registerUser)
 usersRouter.post('/login', userLogin)
 usersRouter.post('/verifyotp', otpController.verifyOTP)
-usersRouter.get('/check', verifyToken, checkUser)
+// usersRouter.get('/check', verifyToken, checkUser)
 
 
 //this are routes for users
 usersRouter.put('/edit/:id', verifyToken, editUser)
 usersRouter.delete('/softdelete/:id', verifyToken, softDeleteUser)
-usersRouter.get('/users', verifyToken, getAllUsers)
-usersRouter.get('/users/:userId', verifyToken, getAUserDetails)
+usersRouter.get('/getallusers', verifyToken, getAllUsers)
+usersRouter.get('/singleusers/:userId', verifyToken, getAUserDetails)
 
 
 

@@ -39,7 +39,7 @@ const  createNewPost = async (req, res) => {
 
 const editPost = async (req, res) => {
     try {
-        const { post_id, user_id, newContent } = req.body;
+        const { post_id, user_id, newContent, image_url } = req.body;
         const pool = await mssql.connect(sqlConfig);
 
         const result = await pool
@@ -47,6 +47,7 @@ const editPost = async (req, res) => {
             .input('post_id', mssql.VarChar, post_id)
             .input('user_id', mssql.VarChar, user_id)
             .input('newContent', mssql.Text, newContent)
+            .input('image_url', mssql.VarChar, image_url)
             .execute('editPostProc');
 
         if (result.recordset.length > 0) {
@@ -123,7 +124,7 @@ const getPostsByUserId = async (req, res) => {
         const result = await pool
             .request()
             .input("userId", mssql.VarChar, userId)
-            .execute("getPostsByUserId"); // Call the stored procedure
+            .execute("getPostsByUserIdProc"); // Call the stored procedure
 
         // Check if there are posts for the specified user
         if (result.recordset.length === 0) {
@@ -140,8 +141,8 @@ const getPostsByUserId = async (req, res) => {
 //get a single post by post id
 const viewPostById = async (req, res) => {
     try {
-        const { postId } = req.params.postId; // Assuming the post ID is passed as a URL parameter
-
+        const { postId } = req.params; // Assuming the post ID is passed as a URL parameter
+         console.log(postId)
         const pool = await mssql.connect(sqlConfig);
 
         // Replace 'posts' with the actual name of your 'posts' table

@@ -1,7 +1,8 @@
 CREATE OR ALTER PROCEDURE editPostProc
     @post_id VARCHAR(200),
     @user_id VARCHAR(200),
-    @newContent TEXT
+    @newContent TEXT,
+    @image_url VARCHAR(255)
 AS
 BEGIN
     -- Check if the user is the author of the post
@@ -14,6 +15,7 @@ BEGIN
         -- If the user is the author, update the post content and set the updated_at timestamp
         UPDATE postsTable
         SET content = @newContent,
+            image_url = @image_url,
             updated_at = GETDATE() -- Set the updated_at timestamp to the current date and time
         WHERE id = @post_id;
 

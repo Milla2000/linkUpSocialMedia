@@ -6,7 +6,6 @@ const { getComments, createComment, editComment, softDeleteComment } = require('
 const commentsRouter = Router()
 // app.use(cors());
 
-commentsRouter = Router();
 commentsRouter.delete('/softdeletecomment', verifyToken, softDeleteComment);
 commentsRouter.post('/createcomment', verifyToken, createComment);
 commentsRouter.put('/editcomment', verifyToken, editComment);

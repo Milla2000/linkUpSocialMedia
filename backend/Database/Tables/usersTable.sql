@@ -24,4 +24,9 @@ END CATCH;
 
 DROP TABLE IF EXISTS usersTable;
 
+-- // fetch everything from this TABLE
+SELECT * FROM usersTable;
+
+DELETE FROM usersTable;
+
 
