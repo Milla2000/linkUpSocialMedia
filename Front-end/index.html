@@ -30,24 +30,26 @@
 
                 </div>
                 <div class="home-btn"> <img src="/Front-end/images/icons8-home-24.png" alt=""> Home</div>
-                <div class="messages-btn"> <img src="/Front-end/images/icons8-chat-message-25.png" alt=""> Messages
+                <div class="messages-btn" id="messages-button"> <img src="/Front-end/images/icons8-chat-message-25.png"
+                        alt=""> Messages
                 </div>
+
                 <div class="explore-btn"><img src="/Front-end/images/icons8-hashtag-25.png" alt="">Explore</div>
                 <div class="notifications-btn"><img src="/Front-end/images/icons8-notification-22.png" alt="">
                     Notification</div>
 
             </div>
+
             <div class="bottom-nav">
                 <br>
                 <br>
                 <!-- <div class="settings-btn">Settings</div> -->
                 <!-- <div class="help-btn">Help</div> -->
                 <div class="profile-btn"> <img src="/Front-end/images/icons8-customer-28.png" alt=""> Profile</div>
-                <div class="logout-btn"> <img src="/Front-end/images/icons8-logout-28.png" alt="">Logout</div>
+                <div class="logout-btn"> <a href="/Front-end/login.html" style="color: white; text-decoration: none; display: flex; justify-content: center;"><img src="/Front-end/images/icons8-logout-28.png" alt="">LogOut</a>
+                </div>
                 <!-- <button class="shadow-button">Click me</button> -->
             </div>
-
-
 
         </div>
 
@@ -55,6 +57,10 @@
         <div class="centre">
 
             <div class="top-div">
+                <img id="add-post-button" style="margin-bottom: 18px; margin-right: 11vw; "
+                    src="/Front-end/images/icons8-add.gif" alt="">
+
+
                 <div class="search-container">
                     <input type="text" class="search-input" placeholder="Search...">
                     <button class="search-button"> <img class="png-search" src="/Front-end/images/search.png" alt="">
@@ -66,12 +72,16 @@
                 <div class="user-detail">
                     <div class="user-img">
                         <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
-                        <p class="p-top"><img class="png-icon" src="/Front-end/images/www.png" alt=""> www.twitter.com
-                        </p>
-                        <p class="p-top">Joined August , 1996</p>
+                        <div class="modification">
+                            <p class="p-top"><img class="png-icon" src="/Front-end/images/www.png" alt="">
+                                www.twitter.com
+                            </p>
+                            <p class="p-top">Joined August , 1996</p>
+                        </div>
+
                         <button class="edit-btn">Edit Profile</button>
-                     
-                       
+
+
 
 
                     </div>
@@ -85,8 +95,244 @@
                     <h4 class="bio">Software Engineer</h4>
 
                 </div>
-                <hr style="width: 100%; color: #007AEB;">
-                <div class="bar">
+
+
+
+
+
+                <div style="display: none; " class="follower-following-container">
+                    <!-- Followers section -->
+                    <div class="followers-section" style=" padding: 10px; margin-right: 10px;">
+                        <h2 style="font-size: 20px; color: #007AEB; margin-bottom: 11px;">Followers</h2>
+                        <ul class="followers-list" style="list-style: none; padding: 0;">
+                            <!-- Populate this list with follower information -->
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <!-- Add more list items as needed -->
+                        </ul>
+                    </div>
+                
+                    <!-- Following section -->
+                    <div class="following-section" style=" padding: 10px; margin-right: 10px;">
+                        <h2 style="font-size: 20px; color: #007AEB; margin-bottom: 11px;">Following</h2>
+                        <ul class="followers-list" style="list-style: none; padding: 0;">
+                            <!-- Populate this list with following information -->
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <!-- Add more list items as needed -->
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                            <li style="margin-bottom: 5px;">
+                                <div class="user-details-followers ">
+                                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                                    <div class="friend-detail">
+                                        <h3 class="to-know-names">John Wachira</h3>
+                                        <h5 class="bio"> Rising Down CEO </h5>
+                                        <h5><span>4569</span> followers</h5>
+                                    </div>
+                
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                <div style="border-radius: 5px; border: 2px solid #007AEB; width: auto;" class="bar">
 
                     <div class="bar1">Posts</div>
                     <div class="bar2">Media</div>
@@ -94,11 +340,20 @@
                     <div class="bar4">Likes</div>
 
                 </div>
-                <hr style="width: 100%; color: #007AEB;">
+                
+
+
+
+
+
+
+
+
                 <div class="posts">
                     <div class="my-details">
                         <p class="poster">Milla Jesso,&nbsp;&nbsp;&nbsp;&nbsp; <span>June 13,1998 &nbsp; @time</span>
-                            <img src="" alt=""> </p>
+                            <img src="" alt="">
+                        </p>
                         <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
                             ability to decipher complex dataand develop algorithms that power smart systems. These
                             skills aren't just for now; they'reyour
@@ -134,7 +389,7 @@
                     </div>
                     <br>
                     <div class="my-details">
-                        <p class="poster">Milla Jesso, <span>June 13,1998</span> &nbsp; @time <img src="" alt="">  </p>
+                        <p class="poster">Milla Jesso, <span>June 13,1998</span> &nbsp; @time <img src="" alt=""> </p>
                         <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
                             ability to decipher complex dataand develop algorithms that power smart systems. These
                             skills aren't just for now; they'reyour
@@ -197,7 +452,7 @@
         <div class="right-nav">
 
 
-            <div class="trends">
+            <div style="display: block;"  class="trends">
                 <h1>Trending Topics</h1>
 
                 <div class="to-be-installed">
@@ -224,7 +479,7 @@
 
             </div>
 
-            <div class="user-to-know-them">
+            <div style="display: block;" class="user-to-know-them">
                 <h1>Who to Know</h1>
 
                 <div class="to-be-generated">
@@ -278,10 +533,166 @@
 
                         </div>
                     </div>
+                    <div class="user-know">
+                        <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                        <div class="user-details">
+                            <img src="" alt="">
+                            <h3 class="to-know-names">John Wachira</h3>
+                            <h5 class="bio"> Rising Down CEO </h5>
+                            <h5><span>4569</span> followers</h5>
+
+                        </div>
+                    </div>
+                    <div class="user-know">
+                        <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                        <div class="user-details">
+                            <img src="" alt="">
+                            <h3 class="to-know-names">John Wachira</h3>
+                            <h5 class="bio"> Rising Down CEO </h5>
+                            <h5><span>4569</span> followers</h5>
+
+                        </div>
+                    </div>
+                    <div class="user-know">
+                        <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                        <div class="user-details">
+                            <img src="" alt="">
+                            <h3 class="to-know-names">John Wachira</h3>
+                            <h5 class="bio"> Rising Down CEO </h5>
+                            <h5><span>4569</span> followers</h5>
+
+                        </div>
+                    </div>
+                    <div class="user-know">
+                        <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                        <div class="user-details">
+                            <img src="" alt="">
+                            <h3 class="to-know-names">John Wachira</h3>
+                            <h5 class="bio"> Rising Down CEO </h5>
+                            <h5><span>4569</span> followers</h5>
+
+                        </div>
+                    </div>
 
 
 
 
+                </div>
+            </div>
+
+
+
+            <!-- message page -->
+            <div style="display: none;" class="messaging-page">
+                <h2>Messaging</h2>
+                <!-- List of conversations or contacts -->
+                <ul class="conversation-list">
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 1">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 1</h3>
+                            <p class="last-message">Hello, how are you?</p>
+                            <span class="message-time">2:30 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <!-- Add more conversation items as needed -->
+                </ul>
+
+                <!-- Selected conversation or chat -->
+                <div class="chat-box">
+                    <div class="chat-header">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 1">
+                        <h3 class="user-name">User 1</h3>
+                    </div>
+
+                    <div class="chat-messages">
+                        <div class="user-message">
+                            <div class="message-text">This is a Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Maxime
+                                laudantium dicta adipisci voluptatum numquam, ipsum modi aliquam sint repellat facere.
+                                message I
+                                sent.</div>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+
+                        <div class="other-user-message">
+                            <div class="message-text">This is a message received from another user.</div>
+                            <span class="message-time">2:40 PM</span>
+                        </div>
+                        <div class="user-message">
+                            <div class="message-text">This is a Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Maxime
+                                laudantium dicta adipisci voluptatum numquam, ipsum modi aliquam sint repellat facere.
+                                message I
+                                sent.</div>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+
+                        <div class="other-user-message">
+                            <div class="message-text">This is a message received from another user.</div>
+                            <span class="message-time">2:40 PM</span>
+                        </div>
+                        <div class="user-message">
+                            <div class="message-text">This is a Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Maxime
+                                laudantium dicta adipisci voluptatum numquam, ipsum modi aliquam sint repellat facere.
+                                message I
+                                sent.</div>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+
+                        <div class="other-user-message">
+                            <div class="message-text">This is a message received from another user.</div>
+                            <span class="message-time">2:40 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea class="message-input" placeholder="Type your message..."></textarea>
+
+                        <button class="send-button"><img class="send-btn" src="/Front-end/images/icons8-send-28.png"
+                                alt=""></button>
+                    </div>
                 </div>
             </div>
 
@@ -291,10 +702,9 @@
 
     </div>
     <!-- Modal for Edit Profile -->
-    <div 
-   style="display: none;" class="modaling">
+    <div style="display: none;" class="modaling">
         <div class="modal-content">
-        <span class="close" style="font-size: xx-large;">&times;</span>
+            <span class="close" style="color: red; font-size: xx-large;">&times;</span>
 
             <!-- Add your edit form or content here -->
             <h2>Edit Profile</h2>
@@ -318,7 +728,45 @@
             </form>
         </div>
     </div>
+    <!-- Modal for Add Post -->
+    <div style="display: none;" class="modaling1">
+        <div class="modal-content1">
+            <span class="close1" style="font-size: xx-large; color: red;">&times;</span>
+
+            <!-- Add your post form or content here -->
+            <h2>Add Post</h2>
+
+            <!-- Add your post form fields here -->
+            <form
+                style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; justify-content: center; column-gap: 15px;"
+                action="#" method="POST">
+
+                <input type="file" id="post-image" name="image" accept="image/*" required>
+                <br>
+                <textarea id="post-text" name="postText" placeholder="Write your post here" required></textarea>
+                <br>
+                <button type="submit" class="save-btn">Post</button>
+            </form>
+            <a href="/Front-end/mobile.html"></a>
+        </div>
+    </div>
+    <script>
+        // Function to check the screen width and redirect if necessary
+        function checkScreenWidth() {
+            const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            // Adjust the screen width threshold as needed (e.g., 800 for common mobile breakpoint)
+            if (screenWidth <= 911) {
+                window.location.href = '/Front-end/mobile.html'; // Redirect to the mobile.html page
+            }
+        }
+
+        // Call the function when the page loads and on window resize
+        window.addEventListener('load', checkScreenWidth);
+        window.addEventListener('resize', checkScreenWidth);
+    </script>
     <script src="/Front-end/script.js"></script>
+
 </body>
 
 </html>

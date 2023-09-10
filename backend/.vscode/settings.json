@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+{
+  "dataworkspace.excludedProjects": ["shoepify/shoepify.sqlproj"]
+}
+=======
+{
+  "dataworkspace.excludedProjects": ["shoepify/shoepify.sqlproj"]
+}
+>>>>>>> d5675689c1d263c0192ec993e04daadc75c6980a

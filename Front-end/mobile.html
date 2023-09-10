@@ -11,26 +11,339 @@
 
 <body>
     <div class="my-body">
+
+
+
         <div class="top-div">
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search...">
                 <button class="search-button"> <img class="png-search" src="/Front-end/images/search.png" alt="">
                 </button>
             </div>
-        
         </div>
-        
-        <div class="footer">
-            <div class="home-btn"> <img src="/Front-end/images/icons8-home-24.png" alt=""> Home</div>
-            <div class="messages-btn"> <img src="/Front-end/images/icons8-chat-message-25.png" alt=""> Messages
+
+
+        <div class="centre">
+
+
+            <!-- The Modal for editing profile -->
+            <div style="display: none;" class="modaling">
+                <div class="modal-content">
+
+                    <span class="close" style="font-size: xx-large;">&times;</span>
+                    <!-- Add your edit form or content here -->
+                    <h2>Edit Profile</h2>
+
+                    <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                    <!-- Add your edit form fields here -->
+                    <form action="#" method="POST" style="margin-right: 11px;">
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <br>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <br>
+                        <input type="text" id="profession" name="confirmPassword" placeholder="profession" required>
+                        <br>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <br>
+                        <label for="image-upload" class="image-upload-label">
+                            Upload image
+                        </label>
+                        <input type="file" id="image-upload" name="image" accept="image/*" style="display: none;"
+                            required>
+                        <br>
+                        <br>
+                        <br>
+                        <button type="submit" class="save-btn">Update</button>
+                    </form>
+                </div>
             </div>
-            <div class="explore-btn"><img src="/Front-end/images/icons8-hashtag-25.png" alt="">Explore</div>
-            <div class="notifications-btn"><img src="/Front-end/images/icons8-notification-22.png" alt="">
-                Notification</div>
-            <div class="profile-btn"> <img src="/Front-end/images/icons8-customer-28.png" alt=""> Profile</div>
-            <div class="logout-btn"> <img src="/Front-end/images/icons8-logout-28.png" alt="">Logout</div>
+
+
+
+
+            <div style="display: block;" class="down-div">
+                <div style="display: block;" class="user-detail">
+                    <div class="user-img">
+                        <img class="png-edit" src="/Front-end/images/user (1).png" alt="">
+                        <div class="modification">
+                            <p class="p-top"><img class="png-icon" src="/Front-end/images/www.png" alt="">
+                                www.twitter.com
+                            </p>
+                            <p class="p-top">Joined August , 1996</p>
+                        </div>
+
+                        <button class="edit-btn">Edit Profile</button>
+                    </div>
+
+                    <h3 class="name">Milla Jesso</h3>
+                    <div></div>
+                    <h3 class="follo"> Followers: <span>100</span> &nbsp; &nbsp;&nbsp; Following: <span>100</span></h3>
+                    <!-- <p class="p-followers">100</p>
+                            <h3 class="follo">Following</h3>
+                            <p class="p-following">100</p> -->
+                    <h4 class="bio">Software Engineer</h4>
+
+                </div>
+                <hr style="width: 100%; color: #007AEB;">
+                <div class="bar">
+
+                    <div class="bar1">Posts</div>
+                    <div class="bar2">Media</div>
+                    <div class="bar3">Replies</div>
+                    <div class="bar4">Likes</div>
+
+                </div>
+                <hr style="width: 100%; color: #007AEB;">
+                <div style="overflow: auto;" class="posts">
+                    <div class="my-details">
+                        <p class="poster">Milla Jesso,&nbsp;&nbsp;&nbsp;&nbsp; <span>June 13,1998 &nbsp; @time</span>
+                            <img src="" alt="">
+                        </p>
+                        <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
+                            ability to decipher complex dataand develop algorithms that power smart systems. These
+                            skills aren't just for now; they'reyour
+                            key to unlocking opportunities</p>
+                        <img class="png-post" src="/Front-end/images/w1Bc5kx9.jpeg" alt="">
+                        <div class="reacting-comments">
+                            <div class="user-actions"><img src="/Front-end/images/icons8-like-28.png" alt=""><span
+                                    class="no-likes">78</span> </div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-comment-28.png" alt=""><span
+                                    class="no-comments">78</span></div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-reply-arrow-28.png"
+                                    alt=""><span class="retweet">78</span></div>
+                        </div>
+                        <!-- <hr style="width: 100%; color: #007AEB;"> -->
+                    </div>
+                    <br>
+                    <div class="my-details">
+                        <p class="poster">Milla Jesso, <span>June 13,1998</span> &nbsp; @time <img src="" alt=""> </p>
+                        <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
+                            ability to decipher complex dataand develop algorithms that power smart systems. These
+                            skills aren't just for now; they'reyour
+                            key to unlocking opportunities</p>
+                        <img class="png-post" src="/Front-end/images/w1Bc5kx9.jpeg" alt="">
+                        <div class="reacting-comments">
+                            <div class="user-actions"><img src="/Front-end/images/icons8-like-28.png" alt=""><span
+                                    class="no-likes">78</span> </div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-comment-28.png" alt=""><span
+                                    class="no-comments">78</span></div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-reply-arrow-28.png"
+                                    alt=""><span class="retweet">78</span></div>
+                        </div>
+                        <!-- <hr style="width: 100%; color: #007AEB;"> -->
+                    </div>
+                    <br>
+                    <div class="my-details">
+                        <p class="poster">Milla Jesso, <span>June 13,1998</span> &nbsp; @time <img src="" alt=""> </p>
+                        <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
+                            ability to decipher complex dataand develop algorithms that power smart systems. These
+                            skills aren't just for now; they'reyour
+                            key to unlocking opportunities</p>
+                        <img class="png-post" src="/Front-end/images/w1Bc5kx9.jpeg" alt="">
+                        <div class="reacting-comments">
+                            <div class="user-actions"><img src="/Front-end/images/icons8-like-28.png" alt=""><span
+                                    class="no-likes">78</span> </div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-comment-28.png" alt=""><span
+                                    class="no-comments">78</span></div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-reply-arrow-28.png"
+                                    alt=""><span class="retweet">78</span></div>
+                        </div>
+                        <!-- <hr style="width: 100%; color: #007AEB;"> -->
+                    </div>
+                    <br>
+                    <div class="my-details">
+                        <p class="poster">Milla Jesso, <span>June 13,1998</span> &nbsp; @time <img src="" alt=""> </p>
+                        <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
+                            ability to decipher complex dataand develop algorithms that power smart systems. These
+                            skills aren't just for now; they'reyour
+                            key to unlocking opportunities</p>
+                        <img class="png-post" src="/Front-end/images/w1Bc5kx9.jpeg" alt="">
+                        <div class="reacting-comments">
+                            <div class="user-actions"><img src="/Front-end/images/icons8-like-28.png" alt=""><span
+                                    class="no-likes">78</span> </div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-comment-28.png" alt=""><span
+                                    class="no-comments">78</span></div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-reply-arrow-28.png"
+                                    alt=""><span class="retweet">78</span></div>
+                        </div>
+                        <!-- <hr style="width: 100%; color: #007AEB;"> -->
+                    </div>
+                    <br>
+                    <div class="my-details">
+                        <p class="poster">Milla Jesso, <span>June 13,1998</span> &nbsp; @time <img src="" alt=""> </p>
+                        <p>Employers are on the hunt for candidates with cutting-edge skills.  Stay ahead with the
+                            ability to decipher complex dataand develop algorithms that power smart systems. These
+                            skills aren't just for now; they'reyour
+                            key to unlocking opportunities</p>
+                        <img class="png-post" src="/Front-end/images/w1Bc5kx9.jpeg" alt="">
+                        <div class="reacting-comments">
+                            <div class="user-actions"><img src="/Front-end/images/icons8-like-28.png" alt=""><span
+                                    class="no-likes">78</span> </div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-comment-28.png" alt=""><span
+                                    class="no-comments">78</span></div>
+                            <div class="user-actions"><img src="/Front-end/images/icons8-reply-arrow-28.png"
+                                    alt=""><span class="retweet">78</span></div>
+                        </div>
+
+                        <!-- <hr style="width: 100%; color: #007AEB;"> -->
+                    </div>
+                    <br>
+                    <br>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- message page -->
+            <div style="display: none;" class="messaging-page">
+                <h2>Messaging</h2>
+                <!-- List of conversations or contacts -->
+                <ul class="conversation-list">
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 1">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 1</h3>
+                            <p class="last-message">Hello, how are you?</p>
+                            <span class="message-time">2:30 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <li class="conversation">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 2">
+                        <div class="conversation-details">
+                            <h3 class="user-name">User 2</h3>
+                            <p class="last-message">I'm good, thanks!</p>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+                    </li>
+                    <!-- Add more conversation items as needed -->
+                </ul>
+
+                <!-- Selected conversation or chat -->
+                <div class="chat-box">
+                    <div class="chat-header">
+                        <img class="user-avatar" src="/Front-end/images/user (1).png" alt="User 1">
+                        <h3 class="user-name">User 1</h3>
+                    </div>
+
+                    <div class="chat-messages">
+                        <div class="user-message">
+                            <div class="message-text">This is a Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Maxime
+                                laudantium dicta adipisci voluptatum numquam, ipsum modi aliquam sint repellat facere.
+                                message I
+                                sent.</div>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+
+                        <div class="other-user-message">
+                            <div class="message-text">This is a message received from another user.</div>
+                            <span class="message-time">2:40 PM</span>
+                        </div>
+                        <div class="user-message">
+                            <div class="message-text">This is a Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Maxime
+                                laudantium dicta adipisci voluptatum numquam, ipsum modi aliquam sint repellat facere.
+                                message I
+                                sent.</div>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+
+                        <div class="other-user-message">
+                            <div class="message-text">This is a message received from another user.</div>
+                            <span class="message-time">2:40 PM</span>
+                        </div>
+                        <div class="user-message">
+                            <div class="message-text">This is a Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Maxime
+                                laudantium dicta adipisci voluptatum numquam, ipsum modi aliquam sint repellat facere.
+                                message I
+                                sent.</div>
+                            <span class="message-time">2:35 PM</span>
+                        </div>
+
+                        <div class="other-user-message">
+                            <div class="message-text">This is a message received from another user.</div>
+                            <span class="message-time">2:40 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <textarea class="message-input" placeholder="Type your message..."></textarea>
+
+                        <button class="send-button"><img class="send-btn" src="/Front-end/images/icons8-send-28.png"
+                                alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="home-btn"> <img src="/Front-end/images/icons8-home-24.png" alt=""></div>
+            <div class="messages-btn"> <img src="/Front-end/images/icons8-chat-message-25.png" alt="">
+            </div>
+            <div class="explore-btn"><img src="/Front-end/images/icons8-hashtag-25.png" alt=""></div>
+            <!-- <div class="notifications-btn"><img src="/Front-end/images/icons8-notification-22.png" alt=""></div> -->
+            <div class="profile-btn"> <img src="/Front-end/images/icons8-customer-28.png" alt=""></div>
+            <div class="logout-btn"> <a href="/Front-end/login.html"><img src="/Front-end/images/icons8-logout-28.png"
+                        alt=""></a></div>
         </div>
     </div>
+
+   <script>
+        // Function to check the screen width and redirect if necessary
+        function checkScreenWidth() {
+        const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        
+        // Adjust the screen width threshold as needed (e.g., 800 for common mobile breakpoint)
+        if (screenWidth >= 911) { // Use >= for greater than or equal to
+        window.location.href = '/Front-end/index.html'; // Redirect to the index.html page
+        }
+        }
+        
+        // Call the function when the page loads and on window resize
+        window.addEventListener('load', checkScreenWidth);
+        window.addEventListener('resize', checkScreenWidth);
+
+    </script> 
+
+    <script src="/Front-end/script.js"></script>
 </body>
 
 </html>
