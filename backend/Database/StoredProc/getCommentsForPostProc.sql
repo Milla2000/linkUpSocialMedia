@@ -1,10 +1,10 @@
 CREATE OR ALTER PROCEDURE getCommentsForPostProc
-    @postId VARCHAR(200)
+    @postorcommentId VARCHAR(200)
 AS
 BEGIN
     -- Fetch comments for a post
     SELECT *
-    FROM comments
-    WHERE post_id = @postId
+    FROM commentsTable
+    WHERE post_id = @postorcommentId
       AND deleted_at IS NULL;
 END;

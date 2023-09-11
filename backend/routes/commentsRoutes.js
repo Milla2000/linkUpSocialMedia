@@ -9,7 +9,7 @@ const commentsRouter = Router()
 commentsRouter.delete('/softdeletecomment', verifyToken, softDeleteComment);
 commentsRouter.post('/createcomment', verifyToken, createComment);
 commentsRouter.put('/editcomment', verifyToken, editComment);
-commentsRouter.get('/getcomments', getComments);
+commentsRouter.get('/getcomments', getComments); //for a post or a comment depends what use has clicked
 
 
 

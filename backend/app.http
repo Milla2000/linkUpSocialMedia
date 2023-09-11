@@ -4,11 +4,11 @@ Content-Type: application/json
 
 {
    
-    "username": "jesso",
-    "email":"jessyopeno2000@gmail.com",
+    "username": "jesso789",
+    "email":"milla.jesso@thejitu.com",
     "password":"12345678",
     "full_name": "jessyopeno",
-    "profile_picture": "12345678"
+    "profile_picture": "http://localhost:4500/users/login"
 }
 
 # { username, email, password, full_name, profile_picture } 
@@ -18,7 +18,7 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"jessyopeno2000@gmail.com",
+    "email":"milla.jesso@thejitu.com",
     "password":"12345678"
 }
 
@@ -27,10 +27,35 @@ POST  http://localhost:4500/users/verifyotp
 Content-Type: application/json
 
 {
-    "otp":"760232",
+    "otp":"644159",
     "userEmail":"jessyopeno2000@gmail.com"
 
 }
+
+### reset password
+POST  http://localhost:4500/reset/resetPassword
+Content-Type: application/json
+
+{
+    "email": "jessyopeno2000@gmail.com"   
+}
+
+### setting new password
+POST  http://localhost:4500/reset/updatePassword
+Content-Type: application/json
+
+{
+    "resetToken": "20169157-57f7-44b2-acbd-791c35835856",
+    "newPassword": "milla789"
+    
+}
+
+
+
+
+
+
+
 
 ###  get a single user
 GET http://localhost:4500/users/singleusers/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
@@ -101,51 +126,156 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiO
     
 }
 
-
-
 ###get post by user id
 GET http://localhost:4500/posts/getpostsbyuserid/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
 
-
-
-
-
-
-###checkout from cart
-POST http://localhost:4500/cart/checkout
+### create a comment
+POST  http://localhost:4500/comments/createcomment
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTcyMDU0LCJleHAiOjE2OTMyMDgwNTR9.fbeFT9yawKjxKeSxVkK_KdqpLpJWG57flx3We_Uv9OA
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
 
 {
-  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b" 
-}
-
-
-
-
-
-
-
-
-### reset password
-POST  http://localhost:4500/reset/resetPassword
-Content-Type: application/json
-
-{
-    "email": "jessyopeno2000@gmail.com"   
-}
-
-### setting new password
-POST  http://localhost:4500/reset/updatePassword
-Content-Type: application/json
-
-{
-    "resetToken": "2953a64d-740f-4ee3-a22e-38e7ae21ea3b",
-    "newPassword": "milla789"
+    "postId": "94b1ff10-281c-4c03-905b-fbf4337cb99f",
+    "userId": "01436d12-3006-4c7d-85ad-aa12f466e932",
+    "content": "comment to a subcomment",
+    "parentCommentId": "61c8e0ab-df17-4557-be91-1f0600026caf"
     
 }
+
+# postId, userId, content, parentCommentId
+
+### edit a comment
+PUT  http://localhost:4500/comments/editcomment
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+
+{
+    "comment_id": "61c8e0ab-df17-4557-be91-1f0600026caf",
+    "user_id": "01436d12-3006-4c7d-85ad-aa12f466e932",
+    "newContent": "updated comment"
+    
+}
+
+# comment_id, user_id, newContent 
+
+
+### getcomments for a post for or a comment as subcomments
+GET  http://localhost:4500/comments/getcomments
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+
+{
+    "postId": "94b1ff10-281c-4c03-905b-fbf4337cb99f"  
+}
+
+# postId, commentId
+# "commentId": "61c8e0ab-df17-4557-be91-1f0600026caf"  for subcomments
+
+
+### soft delete a comment
+DELETE http://localhost:4500/comments/softDeleteComment
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+
+{
+    "comment_id": "374de6a0-d8e8-4d69-86a4-6548e35985b7",
+    "user_id": "01436d12-3006-4c7d-85ad-aa12f466e932"  
+}
+
+# comment_id, user_id
+
+
+
+# 374de6a0-d8e8-4d69-86a4-6548e35985b7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

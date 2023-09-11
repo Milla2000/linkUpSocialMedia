@@ -3,8 +3,7 @@ CREATE OR ALTER PROCEDURE insertCommentProc
     @post_id VARCHAR(200),
     @user_id VARCHAR(200),
     @content TEXT,
-    @parent_comment_id VARCHAR(200) = NULL, -- Nullable for replies to comments
-    @created_at DATETIME,
+    @parent_comment_id VARCHAR(200) = NULL, -- Nullable for replies to comment
     @updated_at DATETIME = NULL,
     @deleted_at DATETIME = NULL,
     @likes_count INT = 0,

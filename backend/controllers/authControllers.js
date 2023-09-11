@@ -104,15 +104,15 @@ const userLogin = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "One-Time Password (OTP)",
-      text: `Your OTP is: ${otp}`,
+      text: `Your OTP is: ${otp}  \n\n OTP expires in 10 minutes. \n\n If you did not request for an OTP, please ignore this email. \n\n Regards, \n LinkUp Support Team`,
     };
 
     try {
       // Send OTP via email
       await sendMail(message);
-      console.log("OTP sent:", message);
+      // console.log("OTP sent:", message);
     } catch (error) {
-      console.log("Error sending OTP:", error);
+      // console.log("Error sending OTP:", error);
       throw new Error("Error sending OTP");
     }
 
@@ -149,7 +149,7 @@ const otpController = {
         });
       }
   
-        console.log(userEmail);
+        // console.log(userEmail);
       const pool = await mssql.connect(sqlConfig);
 
       // Retrieve the user by email

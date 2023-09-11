@@ -45,10 +45,10 @@ const createComment = async (req, res) => {
 // Function to get comments for a post or a comment
 const getComments = async (req, res) => {
     try {
-        const { postId, commentId } = req.params;
-
+        const { postId, commentId } = req.body;
+        console.log(req.body);
         const pool = await mssql.connect(sqlConfig);
-
+        
         let procedure;
         let params;
 
@@ -57,16 +57,17 @@ const getComments = async (req, res) => {
             procedure = 'getCommentsForPostProc';
             params = { postId };
         } else if (commentId) {
+            console.log("inside comment id", commentId);
             // If commentId is provided, call the procedure to fetch sub-comments for a comment
             procedure = 'getSubCommentsForCommentProc';
             params = { commentId };
         } else {
             return res.status(400).json({ error: 'Invalid request' });
         }
-
+        console.log("before result", commentId);
         const result = await pool
             .request()
-            .input('Id', mssql.VarChar, postId || commentId) // Pass either postId or commentId
+            .input('postorcommentId', mssql.VarChar, postId || commentId) // Pass either postId or commentId
             .execute(procedure);
 
         if (result.recordset.length > 0) {
@@ -85,17 +86,20 @@ const getComments = async (req, res) => {
 const editComment = async (req, res) => {
     try {
         const { comment_id, user_id, newContent } = req.body;
+        console.log(req.body);
 
         const pool = await mssql.connect(sqlConfig);
 
         // Check if the user is the author of the comment using a stored procedure
+        console.log("before result");
         const result = await pool
             .request()
             .input("comment_id", mssql.VarChar, comment_id)
             .input("user_id", mssql.VarChar, user_id)
             .input("newContent", mssql.Text, newContent)
             .execute("editCommentProc");
-
+         
+        console.log("after result");
         if (result.returnValue === 0) {
             // The comment was successfully edited
             return res.status(200).json({ message: "Comment updated successfully" });
@@ -107,6 +111,7 @@ const editComment = async (req, res) => {
             return res.status(500).json({ error: "Failed to update comment" });
         }
     } catch (error) {
+        console.log("after error");
         return res.status(500).json({ error: error.message });
     }
 };
@@ -114,10 +119,12 @@ const editComment = async (req, res) => {
 const softDeleteComment = async (req, res) => {
     try {
         const { comment_id, user_id } = req.body;
+        console.log(req.body);
 
         if (!comment_id || !user_id) {
             return res.status(400).json({ error: "Missing required parameters" });
         }
+        const pool = await mssql.connect(sqlConfig);
 
         const result = await pool
             .request()

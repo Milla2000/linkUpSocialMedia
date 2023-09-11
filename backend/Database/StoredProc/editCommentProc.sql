@@ -7,12 +7,12 @@ BEGIN
     -- Check if the user is the author of the comment
     IF EXISTS (
         SELECT 1
-        FROM comments
+        FROM commentsTable
         WHERE id = @comment_id AND user_id = @user_id
     )
     BEGIN
         -- If the user is the author, update the comment content
-        UPDATE comments
+        UPDATE commentsTable
         SET content = @newContent
         WHERE id = @comment_id;
         

@@ -19,6 +19,7 @@ BEGIN TRY
         THROW 50004, 'Table already exists!', 1;
     END CATCH
 
+ SELECT * FROM commentsTable;
 
 
 
