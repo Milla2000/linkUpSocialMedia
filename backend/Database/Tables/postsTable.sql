@@ -18,3 +18,6 @@ BEGIN TRY
 
 -- //fetch everything
 SELECT * FROM postsTable;
+
+-- set everything on lkes count column to zero
+ UPDATE postsTable SET likes_count = 0;

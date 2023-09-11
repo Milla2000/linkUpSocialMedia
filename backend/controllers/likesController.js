@@ -2,6 +2,7 @@ const mssql = require("mssql");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { sqlConfig } = require("../config/config");
+const { v4 } = require("uuid");
 const { createUsersTable } = require('../Database/Tables/createTables'); // You can remove this import as createUsersTable is not needed here
 const dotenv = require("dotenv");
 dotenv.config();
@@ -47,7 +48,7 @@ const toggleLikeUnlikePost = async (req, res) => {
             .input("id", mssql.VarChar, id)
             .input("user_id", mssql.VarChar, user_id)
             .input("post_id", mssql.VarChar, post_id)
-            .execute("ToggleLikeUnlikePostProc");
+            .execute("toggleLikeUnlikePostProc");
 
         // Check the result to determine if it was a like or unlike
         if (result.returnValue === 1) {

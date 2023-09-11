@@ -11,7 +11,8 @@ dotenv.config();
 const followUser = async (req, res) => {
     try {
         const { follower_id, following_id } = req.body;
-
+        
+        const pool = await mssql.connect(sqlConfig);
         const result = await pool
             .request()
             .input("follower_id", mssql.VarChar, follower_id)
@@ -34,6 +35,8 @@ const followUser = async (req, res) => {
 const unfollowUser = async (req, res) => {
     try {
         const { follower_id, following_id } = req.body;
+
+        const pool = await mssql.connect(sqlConfig);
 
         const result = await pool
             .request()
@@ -59,16 +62,31 @@ const getUserFollowers = async (req, res) => {
 
         const pool = await mssql.connect(sqlConfig);
 
+        // Fetch the list of followers for the specified user
         const result = await pool
             .request()
             .input("userId", mssql.VarChar, userId)
             .execute("getUserFollowersProc");
 
         if (result.recordset.length > 0) {
-            const followers = result.recordset.map((follower) => ({
-                user_id: follower.follower_id,
-                // Include other follower information as needed
-            }));
+            // Initialize an array to store follower details
+            const followers = [];
+
+            // Iterate through the follower records
+            for (const follower of result.recordset) {
+                // Fetch follower details from the users table using getUserDetailsByIdProc
+                const followerDetailsResult = await pool
+                    .request()
+                    .input("userId", mssql.VarChar, follower.follower_id)
+                    .execute("getUserDetailsByIdProc");
+
+                // Check if follower details were found
+                if (followerDetailsResult.recordset.length > 0) {
+                    // Include follower details in the response
+                    followers.push(followerDetailsResult.recordset[0]);
+                }
+            }
+
             return res.status(200).json(followers);
         } else {
             return res.status(404).json({ error: "No followers found for this user." });
@@ -77,6 +95,7 @@ const getUserFollowers = async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 };
+
 
 const getUserFollowing = async (req, res) => {
     try {
@@ -90,10 +109,24 @@ const getUserFollowing = async (req, res) => {
             .execute("getUserFollowingProc");
 
         if (result.recordset.length > 0) {
-            const following = result.recordset.map((followedUser) => ({
-                user_id: followedUser.following_id,
-                // Include other followed user information as needed
-            }));
+            // Initialize an array to store followed user details
+            const following = [];
+
+            // Iterate through the followed user records
+            for (const followedUser of result.recordset) {
+                // Fetch followed user details from the users table
+                const followedUserDetails = await pool
+                    .request()
+                    .input("userId", mssql.VarChar, followedUser.following_id)
+                    .execute("getUserDetailsByIdProc");
+
+                // Check if followed user details were found
+                if (followedUserDetails.recordset.length > 0) {
+                    // Include followed user details in the response
+                    following.push(followedUserDetails.recordset[0]);
+                }
+            }
+
             return res.status(200).json(following);
         } else {
             return res.status(404).json({ error: "This user is not following anyone." });
@@ -102,6 +135,7 @@ const getUserFollowing = async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 };
+
 
 
 module.exports = {

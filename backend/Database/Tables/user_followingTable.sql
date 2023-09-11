@@ -13,3 +13,4 @@ END CATCH;
 
 --dro table
 -- DROP TABLE user_following;
+SELECT * FROM user_followingTable;

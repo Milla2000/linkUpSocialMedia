@@ -21,5 +21,7 @@ BEGIN TRY
 
  SELECT * FROM commentsTable;
 
+ UPDATE commentsTable SET likes_count = 0;
+
 
 
