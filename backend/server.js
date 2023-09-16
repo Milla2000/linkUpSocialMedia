@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 
 // const { welcomeAboard } = require('./EmailService/newUser');
-// const cron = require('node-cron');
+const cron = require('node-cron');
 const { usersRouter } = require('./routes/usersRouter');
 const { resetPwd } = require('./routes/resetPwdRoute');
 const { followUnfollowRouter } = require('./routes/followersFollowingRoutes');
@@ -12,6 +12,8 @@ const { likeRouter } = require('./routes/likeAndUnlikeRoute');
 const { commentsRouter } = require('./routes/commentsRoutes');
 // const { welcomeAboard } = require('./EmailService/newUser');
 // const resetPasswordController = require('./EmailService/resetPwdUser');
+const { getTrendingWords } = require('./controllers/trendsController');
+const { trendingWords } = require('./routes/trendsRoutes');
 
 
 
@@ -27,6 +29,7 @@ app.use('/posts',  postsRouter)
 app.use('/reset', resetPwd)
 app.use('/likes', likeRouter)
 app.use('/comments', commentsRouter )
+app.use('/trends', trendingWords)
 
 
 
@@ -36,14 +39,15 @@ app.use((err, req, res, next) => {
 
 
 
-//node-mailer cron job here
-// cron.schedule("*/900 * * * * *", async () => {
-//   //runs every 5 seconds
+// node-mailer cron job here
+cron.schedule("*/800 * * * * *", async () => { //runs every 5 seconds
+ 
 
-//   console.log("running a task every 5 seconds");
-//   await resetPasswordController();
-//   console.log("called welcomeAboard");
-// });
+  console.log("Running task to update trends...");
+  await getTrendingWords();
+  console.log("Trends updated.");
+
+});
 
 
 app.listen(4500, () => {

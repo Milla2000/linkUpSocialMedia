@@ -5,7 +5,7 @@ Content-Type: application/json
 {
    
     "username": "jesso",
-    "email":"so@thejitu.com",
+    "email":"jessy@gmail.com",
     "password":"12345678",
     "full_name": "jessyopeno",
     "profile_picture": "http://localhost:4500/users/login"
@@ -18,8 +18,8 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"milla.jesso@thejitu.com",
-    "password":"12345678"
+    "email":"jessyopeno2000@gmail.com",
+    "password":"milla456"
 }
 
 ### verify otp
@@ -27,7 +27,7 @@ POST  http://localhost:4500/users/verifyotp
 Content-Type: application/json
 
 {
-    "otp":"644159",
+    "otp":"832024",
     "userEmail":"jessyopeno2000@gmail.com"
 
 }
@@ -45,7 +45,7 @@ POST  http://localhost:4500/reset/updatePassword
 Content-Type: application/json
 
 {
-    "resetToken": "20169157-57f7-44b2-acbd-791c35835856",
+    "resetToken": "efaff73d-fb62-4da7-9506-f121e9702deb",
     "newPassword": "milla789"
     
 }
@@ -129,6 +129,13 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiO
 ###get post by user id
 GET http://localhost:4500/posts/getpostsbyuserid/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+
+
+
+
+
+
+
 
 
 ### create a comment
@@ -274,4 +281,7 @@ GET http://localhost:4500/posts/94b1ff10-281c-4c03-905b-fbf4337cb99f
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTU0MDUzLCJleHAiOjE2OTMxOTAwNTN9.OrMdrIb8GIklUKSjv7XkO1-XyWDczKhhAUqgqqnILEI
 
 
+### GET ONE Post
+GET http://localhost:4500/trends
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTU0MDUzLCJleHAiOjE2OTMxOTAwNTN9.OrMdrIb8GIklUKSjv7XkO1-XyWDczKhhAUqgqqnILEI
 

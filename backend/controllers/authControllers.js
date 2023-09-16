@@ -9,6 +9,7 @@ const { createUsersTable } = require('../Database/Tables/createTables'); // You 
 const dotenv = require("dotenv");
 dotenv.config();
 
+
 const registerUser = async (req, res) => {
   const id = v4();
   try {

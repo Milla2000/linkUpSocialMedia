@@ -15,7 +15,7 @@ usersRouter.post('/verifyotp', otpController.verifyOTP)
 //this are routes for users
 usersRouter.put('/edit/:id', verifyToken, editUser)
 usersRouter.delete('/softdelete/:id', verifyToken, softDeleteUser)
-usersRouter.get('/getallusers', verifyToken, getAllUsers)
+usersRouter.get('/getallusers', getAllUsers)
 usersRouter.get('/singleusers/:userId', verifyToken, getAUserDetails)
 
 

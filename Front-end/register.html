@@ -9,39 +9,50 @@
 </head>
 
 <body>
+    
     <div class="login-body">
+    <div id="toast" class="toast" style="display: none; background-color: rgb(0, 0, 0);">
+        <div id="toast-text" class="toast-text" ></div>
+        <!-- <div id="loader" class="loader"></div> -->
+    </div>
         <div class="logo-side">
             <img src="/Front-end/images/Screenshot__36_-removebg-preview.png" alt="">
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         </div>
 
         <div class="details-side">
+
             <div class="container">
                 <h3>Register Form</h3>
-                <form action="#" method="POST">
-                    
-                    <input type="text" id="username" name="username" placeholder="Username" required>
+                <form action="" method="POST">
+                
+
+                    <input type="text" id="username" name="username" placeholder="Username" >
                     <br>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email">
                     <br>
-                    <input type="text" id="profession" name="profession" placeholder="profession" required>
+                    <input type="text" id="profession" name="profession" placeholder="full_name">
                     <br>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" placeholder="Password">
                     <br>
-                    
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
-                        required>
+                        >
                     <br>
                     <label for="image-upload" class="image-upload-label">
-                        Upload image
+                        profile_picturee
                     </label>
-                    <input type="file" id="image-upload" name="image" accept="image/*" style="display: none;" required>
+                    <input type="file" id="image-upload" name="image" accept="image/*"
+                        style="margin-top: 15px; margin-left: 85px;">
                     <br>
                     <button type="submit" class="register-button">Register</button>
+
+                    
                 </form>
                 <p class="signin-text">Already a member? <a href="/Front-end/login.html">Sign in</a></p>
             </div>
         </div>
     </div>
+    <script src="/Front-end/register.js"></script>
 </body>
 
 </html>

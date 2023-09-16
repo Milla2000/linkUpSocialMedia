@@ -1,4 +1,4 @@
-const  nodeMailer = require('nodemailer');
+const  nodeMailer = require('nodemailer'); //used 
 const dotenv = require('dotenv');
 
 dotenv.config();

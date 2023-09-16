@@ -5,6 +5,49 @@
 }
 
 
+.toast {
+    /* position: fixed; */
+    top: 8px;
+    right: -250px; /* Start off screen */
+    width: 250px;
+    background-color: rgb(29, 30, 31);
+    color: white;
+    padding: 10px; /* Adjust padding as needed */
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    /* z-index: 9999; */
+    animation: slideInRight 0.5s forwards, slideOutLeft 0.5s 2.5s forwards;
+}
+
+.toast-text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+@keyframes slideInRight {
+    0% {
+        right: -250px; /* Start off screen */
+    }
+    100% {
+        right: 20px; /* Position from the right side */
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        right: 20px; /* Position from the right side */
+    }
+    100% {
+        right: -250px; /* Move off screen to the left */
+    }
+}
+
+
+
+
+
+
 /* followers- following  */
 .follower-following-container{
   
@@ -187,32 +230,12 @@ input[type="password"]::placeholder {
 
 
 
-
-
-
-
-
-
-
-
-
-
-body {
-  font-family: Poppins;
-  font-size: small;
-  margin: 0px;
-  position: relative;
-  
-}
-h5,
-h4,
-h3,
-h2,
-h1 {
+h5,h4,h3,h2,h1 {
   font-family: Poppins;
   font-weight: 400;
   margin: 0px;
 }
+
 h1 {
   color: grey;
 }

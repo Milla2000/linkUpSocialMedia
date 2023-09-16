@@ -10,6 +10,45 @@ body {
   margin: 0px;
   overflow: hidden;
 }
+.toast {
+    position: fixed;
+    top: 8px;
+    right: -250px; /* Start off screen */
+    width: 250px;
+    background-color: rgb(29, 30, 31);
+    color: white;
+    padding: 10px; /* Adjust padding as needed */
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    z-index: 9999;
+    animation: slideInRight 0.5s forwards, slideOutLeft 0.5s 2.5s forwards;
+}
+
+.toast-text {
+    flex: 1;
+    margin-right: 10px;
+}
+@keyframes slideInRight {
+    0% {
+        right: -250px; /* Start off screen */
+    }
+    100% {
+        right: 20px; /* Position from the right side */
+    }
+}
+
+@keyframes slideOutLeft {
+    0% {
+        right: 20px; /* Position from the right side */
+    }
+    100% {
+        right: -250px; /* Move off screen to the left */
+    }
+}
+
+
+
 
 .login-body {
   margin: 0px;
@@ -39,7 +78,7 @@ body {
   margin-bottom: 51px;
 }
 
-.details-side {
+.details-side, .otp-side {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,7 +88,7 @@ body {
 h2{
   margin-bottom: 20px;
 }
-.container {
+.container, .containerotp {
   /* background-color: red; */
   color: white;
   max-width: 600px;
@@ -62,7 +101,7 @@ h2{
   text-align: center;
   /* column-gap: 35px; */
 }
-form {
+form ,.divform {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -93,7 +132,7 @@ input[type="password"]::placeholder {
   text-align: center;
   font-size: medium;
 }
-.login-button, .register-button {
+.login-button, .otp-button, .register-button {
   background-color: #832987;
   width: 40%;
   color: white;
