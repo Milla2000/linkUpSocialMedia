@@ -30,3 +30,7 @@ SELECT * FROM usersTable;
 DELETE FROM usersTable;
 
 
+UPDATE usersTable
+SET deleted_at = NULL
+WHERE id = '01436d12-3006-4c7d-85ad-aa12f466e932';
+

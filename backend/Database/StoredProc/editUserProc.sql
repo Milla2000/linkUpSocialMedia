@@ -1,30 +1,48 @@
--- Edit User Procedure (editUserProc)
-CREATE OR ALTER PROCEDURE editUserProc
-    @id VARCHAR(200),
-    @username VARCHAR(50),
-    @email VARCHAR(100),
-    @full_name VARCHAR(100),
+ CREATE OR ALTER  PROCEDURE editUserProc
+    @id VARCHAR(255),
+    @username VARCHAR(255),
+    @email VARCHAR(255),
+    @full_name VARCHAR(255),
     @profile_picture VARCHAR(255)
 AS
 BEGIN
+    -- Check if the new email already exists for another user
+    IF EXISTS (SELECT 1 FROM usersTable WHERE email = @email AND id != @id)
+    BEGIN
+        -- Email already exists, return an error
+        SELECT -1 AS result;
+        RETURN;
+    END
+
+    -- Check if the new username already exists for another user
+    IF EXISTS (SELECT 1 FROM usersTable WHERE username = @username AND id != @id)
+    BEGIN
+        -- Username already exists, return an error
+        SELECT -2 AS result;
+        RETURN;
+    END
+
+    -- Perform the user update if email and username are unique
     UPDATE usersTable
-    SET
-        username = @username,
+    SET username = @username,
         email = @email,
         full_name = @full_name,
-        profile_picture = @profile_picture,
-        updated_at = GETDATE()
+        profile_picture = @profile_picture
     WHERE id = @id;
-    
-    IF @@ROWCOUNT > 0
+
+    IF @@ROWCOUNT = 1
     BEGIN
-        SELECT 'User updated successfully' AS message;
+        -- User updated successfully
+        SELECT 1 AS result;
+        RETURN;
     END
     ELSE
     BEGIN
-        RAISERROR('User update failed', 16, 1);
+        -- User update failed
+        SELECT 0 AS result;
+        RETURN;
     END
-END;
+END
 
 -- -- Declare variables for parameters
 -- DECLARE @id VARCHAR(200) = '36d7e3cd-49f4-4cb6-9171-a3f926fc7546'; -- Replace with an existing user ID

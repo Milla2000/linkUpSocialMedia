@@ -40,19 +40,14 @@ imageInput.addEventListener('change', async (event) => {
             console.error("An error occurred while uploading the image:", error);
         }
     }
+    // console.log("image url ", profileUrl);
 });
 
 // Get a reference to the toast element
 const toast = document.getElementById("toast");
 
 // Function to show a toast message
-function showToast(message) {
-    toast.textContent = message;
-    toast.style.display = "block";
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 3000);
-}
+
 
 // Function to handle form submission
 async function handleFormSubmit(event) {
@@ -83,6 +78,14 @@ async function handleFormSubmit(event) {
                 },
             }
         );
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.style.display = "block";
+            setTimeout(() => {
+                toast.style.display = "none";
+            }, 3000);
+        }
 
         if (response.status === 200) {
             showToast("Registration successful");

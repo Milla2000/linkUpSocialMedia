@@ -5,7 +5,7 @@ const { createNewPost, editPost, deletePostId, getAllPosts, getPostsByUserId, vi
 
 const postsRouter = Router();
 
-postsRouter.post('/createnewpost', verifyToken, createNewPost);
+postsRouter.post('/createnewpost',  createNewPost);
 postsRouter.get('/getallposts', getAllPosts); 
 postsRouter.get('/getpostsbyuserid/:userId', verifyToken, getPostsByUserId); 
 postsRouter.get('/:postId', viewPostById);

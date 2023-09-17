@@ -4,53 +4,64 @@
   margin: 0px;
 }
 
-
 .toast {
-    /* position: fixed; */
-    top: 8px;
-    right: -250px; /* Start off screen */
-    width: 250px;
-    background-color: rgb(29, 30, 31);
-    color: white;
-    padding: 10px; /* Adjust padding as needed */
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
-    /* z-index: 9999; */
-    animation: slideInRight 0.5s forwards, slideOutLeft 0.5s 2.5s forwards;
+  /* position: fixed; */
+  top: 8px;
+  right: -250px; /* Start off screen */
+  width: 250px;
+  background-color: rgb(29, 30, 31);
+  color: white;
+  padding: 10px; /* Adjust padding as needed */
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  /* z-index: 9999; */
+  animation: slideInRight 0.5s forwards, slideOutLeft 0.5s 2.5s forwards;
+}
+
+.fixed-div {
+  position: fixed;
+  /* top: 0; */
+  bottom: 0;
+  left: 0;
+  /* right: 0; */
+  z-index: 9999;
+  /* background-color: red; */
+  color: red;
+  text-align: center;
+  padding: 3px;
+  border-radius: 5px;
+}
+.fixed-div:hover {
+  background-color: white;
+  cursor: pointer;
 }
 
 .toast-text {
-    flex: 1;
-    margin-right: 10px;
+  flex: 1;
+  margin-right: 10px;
 }
 
 @keyframes slideInRight {
-    0% {
-        right: -250px; /* Start off screen */
-    }
-    100% {
-        right: 20px; /* Position from the right side */
-    }
+  0% {
+    right: -250px; /* Start off screen */
+  }
+  100% {
+    right: 20px; /* Position from the right side */
+  }
 }
 
 @keyframes slideOutLeft {
-    0% {
-        right: 20px; /* Position from the right side */
-    }
-    100% {
-        right: -250px; /* Move off screen to the left */
-    }
+  0% {
+    right: 20px; /* Position from the right side */
+  }
+  100% {
+    right: -250px; /* Move off screen to the left */
+  }
 }
 
-
-
-
-
-
 /* followers- following  */
-.follower-following-container{
-  
+.follower-following-container {
   width: 100%;
   height: 100%;
   background-color: #050520;
@@ -68,14 +79,15 @@
   padding: 11px;
 }
 
-ul{
+ul {
   overflow-y: auto;
 }
 ul::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-.followers-section, .following-section{
+.followers-section,
+.following-section {
   width: 19vw;
   display: flex;
   border: #007aeb 1px solid;
@@ -92,27 +104,16 @@ ul::-webkit-scrollbar {
   align-items: centre;
   justify-content: center;
 }
-.friend-detail{
+.friend-detail {
   display: flex;
   flex-direction: column;
   align-items: centre;
   justify-content: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* Modal styles */
-.modaling , .modaling1  {
+.modaling,
+.modaling1 {
   display: none;
   position: fixed;
   top: 0;
@@ -125,7 +126,8 @@ ul::-webkit-scrollbar {
   align-items: center; /* Center vertically */
 }
 
-.modal-content, .modal-content1 {
+.modal-content,
+.modal-content1 {
   margin-top: 10vh;
   margin-left: 33vw;
   display: flex;
@@ -142,7 +144,8 @@ ul::-webkit-scrollbar {
   max-width: 400px; /* Set a maximum width if desired */
 }
 
-.close , .close1  {
+.close,
+.close1 {
   /* position: absolute; */
   top: 60px;
   right: 60px;
@@ -172,8 +175,8 @@ input[type="text"] {
   font-size: 16px;
   cursor: pointer;
 }
-.image-upload-label{
- background-color: #236eb4;
+.image-upload-label {
+  background-color: #236eb4;
   width: 30%;
   color: white;
   padding: 10px 20px;
@@ -183,7 +186,6 @@ input[type="text"] {
   border-radius: 4px;
   cursor: pointer;
 }
-
 
 /* Hover effect for the button */
 .save-btn:hover {
@@ -222,15 +224,11 @@ input[type="password"]::placeholder {
   font-size: medium;
 }
 
-
-
-
-
-
-
-
-
-h5,h4,h3,h2,h1 {
+h5,
+h4,
+h3,
+h2,
+h1 {
   font-family: Poppins;
   font-weight: 400;
   margin: 0px;
@@ -296,7 +294,7 @@ span {
   width: 100%;
   margin-bottom: 20px;
 }
-.followers-div:hover{
+.followers-div:hover {
   cursor: pointer;
   color: #007aeb;
 }
@@ -315,6 +313,7 @@ span {
   justify-content: center;
   height: 40vh;
   line-height: 25px;
+  /* margin-top: -65px; */
 }
 
 .notifications-btn,
@@ -438,14 +437,14 @@ img {
   align-items: center;
   margin-bottom: 1px;
 }
-.modification{
+.modification {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3px;
 }
-.modification img{
+.modification img {
   height: 15px;
   width: 15px;
   /* font-size: small; */
@@ -481,13 +480,13 @@ img {
   margin-right: 5px;
 }
 .png-post {
+  margin-left: 12px;
   width: 100%;
   border-radius: 10px;
   max-height: 400px;
   margin-top: 5px;
 }
 .my-details {
-  
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -508,10 +507,22 @@ img {
 .poster {
   line-height: 1.5;
   color: grey;
+  display: flex;
+  flex-direction: row;
   align-items: centre;
+  justify-content: space-between;
+  /* gap: 55px; */
+  width: 100%;
+  /* gap: 435px; */
 }
-.poster:hover {
-  color: #007aeb;
+
+.delete-post-button{
+  left: right;
+}
+
+
+.delete-post-button:hover {
+  opacity: 55%;
 }
 
 .reacting-comments {
@@ -563,7 +574,8 @@ img {
 }
 .user-to-know-them {
   width: 80%;
-  height: 58vh;
+  height: 45vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -571,12 +583,19 @@ img {
   background-color: #090941;
   border-radius: 18px;
   overflow-y: auto;
+  padding: 0%;
 }
-.user-to-know-them::-webkit-scrollbar{
-     width: 0;
+.user-to-know-them::-webkit-scrollbar {
+  width: 0;
   background: transparent;
 }
-
+.user-to-know-them h1 {
+  position: sticky; /* Make the <h1> element sticky */
+  top: 0;
+  z-index: 1;
+  background-color: #090941;
+  width: auto;
+}
 
 .to-be-generated {
   height: 58vh;
@@ -588,7 +607,6 @@ img {
   background: transparent;
 }
 .user-know {
-
   border: solid #007aeb 2px;
   margin-bottom: 13px;
   padding: 2px;
@@ -845,7 +863,7 @@ hr {
   align-items: center;
 }
 
-.modal-content .modal-content1{
+.modal-content .modal-content1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -858,10 +876,7 @@ hr {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .modal-content input {
-  
   width: 85%;
- 
-  
 }
 
 .close {
@@ -871,12 +886,9 @@ hr {
   cursor: pointer;
   font-size: 24px;
 }
-textarea{
+textarea {
   height: 11vh;
   width: 95%;
   overflow-y: auto;
   font-size: large;
 }
-
-
-

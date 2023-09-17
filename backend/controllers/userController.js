@@ -16,21 +16,9 @@ dotenv.config();
 const editUser = async (req, res) => {
     try {
         const { id } = req.params;
-        // console.log(req.params.id)
         const { username, email, full_name, profile_picture } = req.body;
-       
-        console.log(req.body)
-
-
-
-        if (!username || !email || !full_name || !profile_picture) {
-            return res.status(400).json({
-                error: "Please input all values",
-            });
-        }
 
         const pool = await mssql.connect(sqlConfig);
-        console.log("connected")
 
         const result = await pool
             .request()
@@ -41,17 +29,23 @@ const editUser = async (req, res) => {
             .input("profile_picture", mssql.VarChar, profile_picture)
             .execute("editUserProc");
 
-        if (result.rowsAffected[0] === 1) {
+        const resultCode = result.recordset[0].result;
+
+        if (resultCode === 1) {
             return res.json({ message: "User updated successfully" });
+        } else if (resultCode === -1) {
+            return res.status(400).json({ error: "Email already exists" });
+        } else if (resultCode === -2) {
+            return res.status(400).json({ error: "Username already exists" });
         } else {
-            console.log("result.rowsAffected[0]" )
-            return res.status(400).json({ message: "User update failed" });
+            return res.status(400).json({ error: "User update failed" });
         }
     } catch (error) {
         console.log("Error:", error);
         return res.status(500).json({ error: error.message });
     }
 };
+
 
 const softDeleteUser = async (req, res) => {
     try {
@@ -89,8 +83,14 @@ const getAllUsers = async (req, res) => {
             .request()
             .execute("getAllUsersProc");
 
-        // Return the list of users in the response
-        return res.status(200).json(users.recordset);
+        // Create a new array of users with the 'password' property removed from each user object
+        const refinedUsers = users.recordset.map(user => {
+            const { password, ...refinedUsers } = user;
+            return refinedUsers;
+        });
+
+        // Return the list of users without passwords in the response
+        return res.status(200).json(refinedUsers);
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
@@ -99,10 +99,10 @@ const getAllUsers = async (req, res) => {
 const getAUserDetails = async (req, res) => {
     try {
         const { userId } = req.params; // Assuming the user ID is passed as a parameter
-         
-       console.log(req.params.userId)
 
-       if (!userId) {
+        console.log(req.params.userId);
+
+        if (!userId) {
             return res.status(400).json({
                 error: "Please input user id",
             });
@@ -120,8 +120,12 @@ const getAUserDetails = async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
-        // Return the user details in the response
-        return res.status(200).json(user.recordset[0]);
+        // Create a payload object with the user details excluding the 'password' property
+        const payload = { ...user.recordset[0] };
+        delete payload.password;
+
+        // Return the payload in the response
+        return res.status(200).json(payload);
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
