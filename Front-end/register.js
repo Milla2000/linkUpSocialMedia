@@ -67,7 +67,7 @@ async function handleFormSubmit(event) {
             {
                 username: usernameInput.value,
                 email: emailInput.value,
-                password: emailInput.value,
+                password: passwordInput.value,
                 full_name: full_nameInput.value,
                 profile_picture: profileUrl,
             },
