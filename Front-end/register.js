@@ -9,7 +9,7 @@ const imageInput = document.getElementById("image-upload");
 
 
 // Define a variable to store the profile picture URL
-let profileUrl = '';
+let profileUrl = imageInput;
 
 // Add an event listener to the image input to handle file upload
 imageInput.addEventListener('change', async (event) => {
