@@ -18,6 +18,7 @@ let config = {
 }
 
 const sendMail = async (messageOptions)=>{
+    console.log("env credentials:", process.env.EMAIL_USER, process.env.EMAIL_PWD);
     let transporter = createTransporter(config);
     await transporter.verify();
     await transporter.sendMail(messageOptions, (err, info)=>{

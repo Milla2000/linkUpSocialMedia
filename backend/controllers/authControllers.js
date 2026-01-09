@@ -52,6 +52,7 @@ const registerUser = async (req, res) => {
 };
 
 const userLogin = async (req, res) => {
+  console.log("User Email:", process.env.EMAIL_USER);
   try {
     const { email, password } = req.body;
 

@@ -5,7 +5,7 @@ Content-Type: application/json
 {
    
     "username": "jesso",
-    "email":"jessyopeno2000@gmail.com",
+    "email":"saluuumoyye@gmail.com",
     "password":"12345678",
     "full_name": "jessyopeno",
     "profile_picture": "12345678"
@@ -18,7 +18,7 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"jessyopeno2000@gmail.com",
+    "email":"saluuumoyye@gmail.com",
     "password":"12345678"
 }
 
@@ -27,14 +27,14 @@ POST  http://localhost:4500/users/verifyotp
 Content-Type: application/json
 
 {
-    "otp":"760232",
-    "userEmail":"jessyopeno2000@gmail.com"
+    "otp":"967582",
+    "userEmail":"saluuumoyye@gmail.com"
 
 }
 
 ###  get a single user
-GET http://localhost:4500/users/singleusers/36d7e3cd-49f4-4cb6-9171-a3f926fc7546
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5NTY0NDEiLCJvdHBFeHBpcnkiOiIyMDIzLTA5LTEwVDE1OjMzOjA2LjI3N1oiLCJpYXQiOjE2OTQzNTk0MTIsImV4cCI6MTY5NDcxOTQxMn0.IGKstDfUBzVJIm07ksu8KLGXIegVEvHFWfAbdGn6dAQ
+GET http://localhost:4500/users/singleusers/7fe8b772-d1ce-4e99-bcfb-e58280d84291
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOiI5Njc1ODIiLCJvdHBFeHBpcnkiOiIyMDI2LTAxLTA5VDEzOjAxOjQ5LjgwMFoiLCJpYXQiOjE3Njc5NjMxMzYsImV4cCI6MTc2ODMyMzEzNn0.d2leYtX7xsFZhB4C2gv8eRzR4CnHaVzU7PWUmgsNnuI
 
 
 

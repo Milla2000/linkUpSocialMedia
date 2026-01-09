@@ -1,4 +1,5 @@
 const userLogin = async (req, res) => {
+    console.log("User Email:", process.env.EMAIL_USER);
     try {
         const { email, password } = req.body;
 
@@ -45,7 +46,6 @@ const userLogin = async (req, res) => {
 
         // Generate OTP
         const otp = generateOTP();
-
         // Send OTP to the user
         const message = {
             from: process.env.EMAIL_USER,

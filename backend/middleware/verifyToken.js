@@ -15,7 +15,7 @@ const verifyToken = async (req, res, next)=>{
         req.info = decodedData
         
     } catch (error) {
-        return res.status(401).json({message: error.message})
+        return res.status(401).json('otp error', {message: error.message})
     }
 
     next()
